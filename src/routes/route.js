@@ -65,22 +65,15 @@ router.get ('/movies/:indexNumber', (req,res) => {
 // ---------------------------------solution 4 -----------------------------------------
 
 
-router.get ('/film/:idNumber', function(req,res){
+router.get ('/film', function(req,res){
     const filmsObj = [ ['id: 1', "name: The Shining"], 
     ['id: 2', "name: Incendies"], 
     ['id: 3', "name: Rang de Basanti"], 
     ['id: 4', "name: Finding Nemo"]]
 
-    let index=req.params.idNumber;
+    res.send(filmsObj)
 
-    if(index > filmsObj.length){
-        return res.send("plz insert valid id")
-    }else{
-        res.send(filmsObj[index])
- }
 })
-
-
 
 
 
@@ -98,8 +91,8 @@ router.get ('/get-/films/:id', function(req,res){
     if(result <= moviesObj.length){
         res.send(moviesObj[result1])
             
-                } else{
-                    res.send("No movie exists with this id")
+    } else{
+        res.send("No movie exists with this id")
     }
     
     })
