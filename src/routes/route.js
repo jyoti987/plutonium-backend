@@ -119,8 +119,6 @@ router.post("/players", function(req, res) {
 })
 
 
-//2nd assignment
-
 
 let booking = [
     {
@@ -226,9 +224,6 @@ router.post('/voters',(req,res)=>{
   res.send(voterArray)
           
 })
-
-// module.exports = router;
-
 
 
 
