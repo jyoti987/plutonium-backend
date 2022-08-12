@@ -119,5 +119,64 @@ router.post("/players", function(req, res) {
 })
 
 
+//2nd assignment
+
+
+let booking = [
+    {
+        bookingNumber: 1,
+        bookingId: 12,
+        sportId: "",
+        centerId: "",
+        type: "private",
+        slot: "16286598000000",
+        bookedOn: "31/08/2021",
+        bookedFor: "01/09/2021",
+    },{
+        bookingNumber: 2,
+        bookingId: 13,
+        sportId: "",
+        centerId: "",
+        type: "private",
+        slot: "16286598000000",
+        bookedOn: "31/08/2021",
+        bookedFor: "01/09/2021",
+    },{
+        bookingNumber: 3,
+        bookingId: 14,
+        sportId: "",
+        centerId: "",
+        type: "private",
+        slot: "16286598000000",
+        bookedOn: "31/08/2021",
+        bookedFor: "01/09/2021",
+    },
+];
+
+
+router.post("/players/:playerName/bookings/:bookingId", function (req, res) {
+    let playerExist = false
+    for (let i = 0; i < players.length; i++) {
+        if (players[i].name == req.params.playerName) {
+            playerExist = true
+        }
+    }
+    if (!playerExist) {
+        return res.send("This player does not exist")
+    }
+    for (let i = 0; i < booking.length; i++) {
+        if ((booking[i].bookingId == req.params.bookingId)) {
+            return res.send("This booking id already existed in Data");
+        }
+    }
+    req.body.playerName = req.params.playerName
+    req.body.bookingId = req.params.bookingId
+
+    booking.push(req.body);
+    return res.send(booking);
+});
+
+
+
 
 module.exports = router;
