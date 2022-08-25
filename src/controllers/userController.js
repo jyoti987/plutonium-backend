@@ -30,7 +30,7 @@ const createUser= async function (req, res) {
     req.anything = "everything"
     
     
-    console.log("Request headers after modificatiom",req.headers)
+    // console.log("Request headers after modificatiom",req.headers)
     
     //Set a header in response
     res.header('year','2022')
