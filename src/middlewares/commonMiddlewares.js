@@ -20,7 +20,29 @@ const mid4= function ( req, res, next) {
     next()
 }
 
+
+
+
+
+
+const validation = function(req,res,next){
+    let toekenHeader = req.headers.isfreeappuser
+    console.log(toekenHeader)
+    if(!toekenHeader){
+        res.send("please enter isFreeAppUser with any value")
+    } else{
+        next()
+    }
+    
+}
+
+
+
+
+
+
 module.exports.mid1= mid1
 module.exports.mid2= mid2
 module.exports.mid3= mid3
 module.exports.mid4= mid4
+module.exports.validation = validation
