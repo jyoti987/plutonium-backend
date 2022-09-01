@@ -65,17 +65,6 @@ const authenticate = async function (req, res) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 const authorise = function (req, res, next) {
     try {
         let token = req.headers["x-Auth-token"];
