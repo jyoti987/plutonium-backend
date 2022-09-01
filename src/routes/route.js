@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 // const UserModel= require("../models/userModel.js")
 const UserController= require("../controllers/userController")
-const BookController= require("../controllers/bookController")
+// const BookController= require("../controllers/bookController")
 const commonMW = require ("../middlewares/commonMiddlewares")
 
 router.get("/test-me", function (req, res) {
@@ -12,7 +12,13 @@ router.get("/test-me", function (req, res) {
 
 
 
-router.post("/createBook", BookController.createBook  )
+router.post("/createUser", UserController.createUser  )
+router.post("/loginUser", UserController.loginUser,commonMW.authenticate )
+router.post("/userPost/:userId/post",commonMW.authorise, UserController.postMessage)
+router.put("/userUpadate/:userId",commonMW.authorise, UserController.updateUser )
+router.get("/getUser/:userId",commonMW.authorise, UserController.getUsersData )
+router.put("/userDelete/:userId",commonMW.authorise, UserController.deleteUser )
+
 
 
 
@@ -48,7 +54,7 @@ router.post("/createBook", BookController.createBook  )
 
 
 
-router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.mid4, UserController.basicCode)
+// router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.mid4, UserController.basicCode)
 
 
 
