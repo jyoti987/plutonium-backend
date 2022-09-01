@@ -106,7 +106,6 @@ const authorise = function (req, res, next) {
 
 module.exports.authenticate = authenticate
 module.exports.authorise = authorise
-// module.exports.authorise2 = authorise2
 
 // module.exports.mid1 = mid1
 // module.exports.mid2 = mid2
