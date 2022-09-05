@@ -1,4 +1,5 @@
 const { count } = require("console")
+const bookModel = require("../models/bookModel")
 const BookModel = require("../models/bookModel")
 
 
@@ -16,6 +17,13 @@ const createBook = async function (req, res) {
         console.log("This is the error :", err.message)
         res.status(500).send({ msg: "Error", error: err.message })
     }
+}
+
+const createBook = async function (req, res){
+    let data = req.body
+    let book = await BookModel.create(data)
+    let savedData = await BookModel
+    res.send({staus: true, msg: book})
 }
 
 // TRY CATCH SUMMARY:
